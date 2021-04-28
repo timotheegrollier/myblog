@@ -1,0 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+main {
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+nav {
+  background: #333;
+  height: 5vh;
+}
+
+table {
+  width: 80%;
+}
+
+thead {
+  background: rgb(105, 93, 71);
+}
+
+td {
+  border: 1px solid black;
+}
+
+.userTab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+}
+
+a {
+  font-size: large;
+  color: aquamarine;
+}
+.btn {
+  width: 20px;
+}

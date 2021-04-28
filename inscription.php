@@ -29,7 +29,7 @@ if ($_POST["password"] != $_POST["mdpConfirm"]) {
     echo " Les mots de passe ne correspondent pas ! <br> ";
     $formError = true;
 } else {
-    if ($_POST['password'] != NULL) {
+    if ($_POST['password'] != NULL || !empty($_POST["password"])) {
         $cryptedPass = password_hash($_POST["password"], PASSWORD_DEFAULT);
         echo $cryptedPass;
     }
@@ -47,8 +47,14 @@ if ($formError) {
     echo " Echec de l'inscription ! <br> ";
 } else {
     var_dump($_POST);
+    $DATA['prenom'] = strip_tags($_POST['prenom']);
+    $DATA['nom'] = strip_tags($_POST['nom']);
+    $DATA['pseudo'] = strip_tags($_POST['pseudo']);
+    $DATA['mail'] = strip_tags($_POST['mail']);
 }
 
+
+// CONNEXION BDD
 try {
     $options = [
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
@@ -57,10 +63,12 @@ try {
 
     $PDO = new PDO($DB_DSN, $DB_USER, $DB_PASS, $options);
 
-    echo "Connexion &eacute;tablie";
+    echo "Connexion &eacute;tablie <br>";
 } catch (\Throwable $th) {
     throw $th;
 };
+
+// 
 
 
 $sql = $PDO->prepare('INSERT INTO users(firstname,lastname,pseudo,email,password) VALUES(:prenom, :nom, :pseudo,:email, :password)');
@@ -70,9 +78,13 @@ $sql = $PDO->prepare('INSERT INTO users(firstname,lastname,pseudo,email,password
 
 
 $sql->execute(array(
-    'prenom' => $_POST['prenom'],
-    'nom' => $_POST['nom'],
-    'pseudo' => $_POST['pseudo'],
-    'password' => $_POST['password'],
-    'email' => $_POST['mail']
+    'prenom' => $DATA['prenom'],
+    'nom' => $DATA['nom'],
+    'pseudo' => $DATA['pseudo'],
+    'password' => $cryptedPass,
+    'email' => $DATA['mail']
 ));
+
+if ($sql) {
+    echo 'Merci ' . $DATA['prenom'] . '! Vous êtes inscrit ! <a href="./index.php">Accueil</a>';
+}
