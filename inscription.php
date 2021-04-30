@@ -38,7 +38,7 @@ if ($_POST["password"] != $_POST["mdpConfirm"]) {
 
 
 if (strlen($_POST["password"]) < 6) {
-    echo "Erreur mot de passe ! <br>";
+    echo "Erreur mot de passe trop court! <br>";
     $formError = true;
 }
 

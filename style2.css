@@ -8,7 +8,7 @@ body {
   height: 100vh;
 }
 main {
-  height: 100%;
+  height: 90%;
 }
 
 ul {
@@ -54,4 +54,39 @@ a {
 }
 .btn {
   width: 20px;
+}
+
+.changeProfil {
+  display: flex;
+  justify-content: center;
+  height: 80%;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40%;
+  border: 1px solid black;
+  background: rgb(175, 175, 175);
+  border-radius: 10px;
+  align-items: center;
+}
+
+input {
+  width: 60%;
+}
+
+.logo-container {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  background: url(./img/2cd40257947437577f493d5bb037cd41.png) center/cover;
+  display: flex;
+  width: 80%;
+  height: 90%;
+  border-radius: 10%;
 }

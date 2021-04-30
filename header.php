@@ -13,7 +13,9 @@
     <header>
         <nav>
             <ul>
-                <li>#</li>
+                <a href="tags.php">
+                    <li>TAG & Catégories</li>
+                </a>
                 <a href="./users.php">
                     <li>Users</li>
                 </a>

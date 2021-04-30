@@ -16,17 +16,49 @@ $userId = ($_GET['id']);
 
 $sql = "SELECT id,firstname,lastname,pseudo,email FROM users WHERE id=$userId";
 
+
 $result = $PDO->query($sql);
 
 if (isset($_GET) && !empty($_GET)) {
+
+
+
+
+
+
+    while ($u = $result->fetch(PDO::FETCH_ASSOC)) {
+        echo "<br> Bonjour :" . $u['firstname'] . "<br>";
+        echo "Modifier le profil  : <br>"
+?>
+<div class="changeProfil">
+
+
+    <form action="./changeProfil.php" method="POST">
+        <label for="changeName">Prénom:</label>
+        <input type='text' name='changeFirstname' placeholder='<?php echo $u['firstname'] ?>'>
+        <label for="changeFirstname">Nom:</label>
+        <input type='text' name='changeLastname' placeholder='<?php echo $u['lastname'] ?>'>
+        <label for="changePseudo">Pseudo:</label>
+        <input type='text' name='changePseudo' placeholder='<?php echo $u['pseudo'] ?>'>
+        <label for="changeEmail">Email:</label>
+        <input type='email' name='changeEmail' placeholder='<?php echo $u['email'] ?>'>
+        <input type="hidden" name="id" value="<?php echo $userId ?>">
+        <input type="submit">
+    </form>
+</div>
+<?php
+
+    }
 } else {
     echo "<br> Erreur !";
 }
-while ($u = $result->fetch(PDO::FETCH_ASSOC)) {
-    echo "<br> Bonjour :" . $u['firstname'] . "<br>";
-}
+
+?>
+<a href="./editPass.php?id=<?php echo $userId ?>">Or just edit password</a>
 
 
 
 
+
+<?php
 require __DIR__ . "./footer.php";

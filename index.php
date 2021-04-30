@@ -5,6 +5,14 @@
 
 
 
+?>
+<div class="logo-container">
+
+
+    <div class="logo">
+
+    </div>
+</div>
 
 
 
@@ -13,5 +21,4 @@
 
 
 
-
-require __DIR__ . "./footer.php";
+<?php require __DIR__ . "./footer.php";
