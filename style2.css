@@ -90,3 +90,10 @@ input {
   height: 90%;
   border-radius: 10%;
 }
+
+.delete {
+  color: red;
+}
+.categories {
+  margin-top: 30px;
+}

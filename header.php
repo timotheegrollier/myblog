@@ -13,7 +13,10 @@
     <header>
         <nav>
             <ul>
-                <a href="tags.php">
+                <a href="index.php">
+                    <li>Home</li>
+                </a>
+                <a href="tagsList.php">
                     <li>TAG & Catégories</li>
                 </a>
                 <a href="./users.php">
