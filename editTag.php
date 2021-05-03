@@ -27,6 +27,8 @@ while ($t = $result->fetch(PDO::FETCH_ASSOC)) {
     <input type="text" name="newTag" id="newTag" placeholder="<?php echo $t['name'] ?>">
     <label for="enabled">Active</label>
     <input type="hidden" name="id" value="<?php echo $userId ?>">
+    <input type="hidden" name="oldTag" value="<?php echo $t['name'] ?>">
+
     <?php
         if ($t['enabled']) {
             echo "<input type='checkbox' name='enabled' id='enabled'checked>";

@@ -40,7 +40,7 @@ try {
                 foreach ($t as $key => $tag) {
                     echo '<td>' . $tag . '</td>';
                 }
-                echo "<td><a href='editTag.php?id=$t[id]'>EDIT</a></td>";
+                echo "<td><a href='editTag.php?id=$t[id]'>EDIT</a></td><td class='delCase'><a class='delTag' href='./delTag.php?id=$t[id]'><i class='fas fa-times-circle'></i></a></td>";
             }
             echo "</tr><br></tbody></table> <a href=createTag.php>Create new tag</a><br><a href='deleteAllTags.php' class='delete'>Delete all tags ! </a>"; ?>
 </div>
