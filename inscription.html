@@ -12,11 +12,11 @@
 
 <body>
     <a href="./index.php"><i class="fas fa-times-circle"></i></a>
-    <form action="./inscription.php" method="POST">
-        <label for="nom">Nom</label>
-        <input type="text" name="nom" id="nom">
+    <form action="./inscription.php" method="POST" enctype="multipart/form-data">
         <label for="prenom">Prénom</label>
         <input type="text" for="prenom" name="prenom" id="prenom">
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom">
         <label for="pseudo">Pseudo</label>
         <input type="text" for="pseudo" name="pseudo" id="pseudo">
         <label for="mail">Email</label>
@@ -25,6 +25,9 @@
         <input type="password" for="mdp" name=" password" id="mdp">
         <label for="mdpConfirm">Confirm password</label>
         <input type="password" for="mdpConfirm" name="mdpConfirm" id="mdpConfirm">
+        <label for="avatar">Choose a profile picture:</label>
+        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+
         <input type="submit">
 
     </form>

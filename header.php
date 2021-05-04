@@ -1,3 +1,9 @@
+<?php session_start();
+require __DIR__ . "./dbConfig.php";
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +15,13 @@
     <link rel="stylesheet" href="./style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
+
 </head>
 
 <body>
     <header>
         <nav>
-            <ul>
+            <ul class="menu">
                 <a href="index.php">
                     <li>Home</li>
                 </a>
@@ -24,9 +31,22 @@
                 <a href="./users.php">
                     <li>Users</li>
                 </a>
-                <a href="./inscription.html">
+
+                <?php if (!isset($_SESSION['id'])) {
+                    echo "<a href='./inscription.html'>
                     <li>Inscription</li>
-                </a>
+                </a><a href='./loginPage.php'>
+                    <li>Connexion</li>
+                </a>";
+                }
+
+                if (isset($_SESSION['id'])) {
+                    echo
+                    "<a href='./deconnexion.php'>
+                    <li>Déconnexion</li>
+                </a><a href='./editUsers.php?id=$_SESSION[id]'><img src=$_SESSION[avatar] class='profile-pic'></a>";
+                }
+                ?>
             </ul>
         </nav>
     </header>

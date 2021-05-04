@@ -6,9 +6,11 @@
 
 body {
   height: 100vh;
+  width: 100vw;
 }
 main {
   height: 90%;
+  width: 100%;
 }
 
 ul {
@@ -26,7 +28,7 @@ a {
 
 nav {
   background: #333;
-  height: 5vh;
+  height: 7vh;
 }
 
 table {
@@ -45,7 +47,6 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40%;
 }
 
 a {
@@ -78,17 +79,23 @@ input {
 
 .logo-container {
   height: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .logo {
-  background: url(./img/2cd40257947437577f493d5bb037cd41.png) center/cover;
+  background: url(./img/php-leader1-880x450.png) center/cover;
   display: flex;
-  width: 80%;
-  height: 90%;
-  border-radius: 10%;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+@media screen and(max-width:500px) {
+  .logo {
+    display: none;
+  }
 }
 
 .delete {
@@ -103,4 +110,44 @@ input {
 }
 .delCase {
   width: 5%;
+}
+.per-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.tabcol6 {
+  display: none;
+}
+.editPics {
+  width: 60px;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+#login {
+  height: 40%;
+}
+
+.profile-pic {
+  width: 45px;
+  border-radius: 50%;
+}
+
+body {
+  background-color: pink;
+}
+
+@media screen and (max-width: 480px) {
+  .menu {
+    display: none;
+  }
+  .userTab {
+    overflow-x: auto;
+  }
 }

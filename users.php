@@ -14,11 +14,13 @@ try {
 };
 
 
-$sql = "SELECT id,firstname,lastname,pseudo,email FROM users";
+$sql = "SELECT id,firstname,lastname,pseudo,email,avatar FROM users";
 
 $result = $PDO->query($sql);
 
 ?>
+
+
 
 
 
@@ -39,12 +41,15 @@ $result = $PDO->query($sql);
 
             <?php
             while ($u = $result->fetch(PDO::FETCH_ASSOC)) {
-                echo '<tr>';
+                echo "<tr>";
+                $ti = 0;
+                $col = "tabcol";
                 foreach ($u as $key => $value) {
-                    echo '<td>' . $value . '</td>';
+                    $ti++;
+                    echo '<td class=' . $col . $ti . '>' . $value . '</td>';
                 }
-                echo "<td><a href='/editUsers.php?id=" . $u['id'] . "'>EDIT</a></td>
-            </tr>";
+                echo "<td><a href='/editUsers.php?id=" . $u['id'] . "'>EDIT</a></td><td><a class='delTag' href=./delUser.php?id=$u[id]><i class='fas fa-times-circle'></i></a></td><td><img class='per-img' src='$u[avatar]'></td>
+                </tr>";
             }
             ?>
 
@@ -54,6 +59,7 @@ $result = $PDO->query($sql);
         <tfoot>
     </table>
 </div>
+
 
 
 
