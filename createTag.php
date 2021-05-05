@@ -7,17 +7,17 @@
 ?>
 
 
+<div class="container">
+    <form action="./tag.php" class="create-tag" method="GET">
+        <label for="newTag">#</label>
+        <input type="text" name="newTag" id="newTag" placeholder="newTag">
+        <label for="enabled">Active
+            <input type="checkbox" name="enabled" id="enabled">
+        </label>
 
-<form action="./tag.php" class="create-tag" method="GET">
-    <label for="newTag">#</label>
-    <input type="text" name="newTag" id="newTag" placeholder="newTag">
-    <label for="enabled">Active
-        <input type="checkbox" name="enabled" id="enabled">
-    </label>
+        <input type="submit">
 
-    <input type="submit">
-
-</form>
-
+    </form>
+</div>
 
 <?php require __DIR__ . "./footer.php";

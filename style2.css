@@ -9,7 +9,7 @@ body {
   width: 100vw;
 }
 main {
-  height: 90%;
+  height: 80%;
   width: 100%;
 }
 
@@ -98,13 +98,6 @@ input {
   }
 }
 
-.delete {
-  color: red;
-}
-.categories {
-  margin-top: 30px;
-}
-
 .delTag {
   color: red;
 }
@@ -142,6 +135,67 @@ input {
 body {
   background-color: pink;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.tagsList,
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.list-btn {
+  margin-top: 30px;
+  border: 1px solid black;
+  background: rgb(172, 170, 170);
+}
+.list-btn:hover {
+  transform: translateY(-1px);
+}
+.del-btn {
+  border: 1px solid black;
+  background: rgb(238, 0, 0);
+}
+.del-btn a {
+  color: white;
+}
+.del-btn:hover {
+  transform: translateY(-1px);
+}
+
+.articleList {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article-container {
+  background: gray;
+  width: 80%;
+}
+#newArticle {
+  display: none;
+}
+
+.modify-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* RESPONSIVE */
 
 @media screen and (max-width: 480px) {
   .menu {

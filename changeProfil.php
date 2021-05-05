@@ -15,7 +15,7 @@ try {
 
     $PDO = new PDO($DB_DSN, $DB_USER, $DB_PASS, $options);
 
-    echo "Connexion &eacute;tablie<br>";
+    // echo "Connexion &eacute;tablie<br>";
 } catch (\Throwable $th) {
     throw $th;
 };
@@ -24,7 +24,7 @@ $userId = $_POST['id'];
 
 $sql = $PDO->prepare('UPDATE users SET firstname = :newFirstname, lastname = :newLastname, pseudo= :newPseudo , email = :newEmail , avatar = :newAvatar WHERE id = :userId');
 
-$sql2 = "SELECT id,firstname,lastname,pseudo,email,avatar FROM users ";
+$sql2 = "SELECT id,firstname,lastname,pseudo,email,avatar FROM users WHERE id=$userId";
 $result = $PDO->query($sql2);
 
 
@@ -53,25 +53,25 @@ function generateRandomString($length = 10)
 
 // UPLOAD IMAGE
 
-var_dump($_FILES);
+// var_dump($_FILES);
 if (!empty($_FILES)) {
     $uploads_dir = './uploads/avatar';
 
     if (is_uploaded_file($_FILES['changeAvatar']['tmp_name'])) {
-        echo "File " . $_FILES['changeAvatar']['name'] . " téléchargé avec succès.\n";
-        $DATA['avatar'] = $_FILES["changeAvatar"]["tmp_name"];
+        // echo "File " . $_FILES['changeAvatar']['name'] . " téléchargé avec succès.\n";
+        $tmp_name = $_FILES["changeAvatar"]["tmp_name"];
         $name = basename($_FILES["changeAvatar"]["name"]);
         if (in_array($extension, $bonneExtensions)) {
             if ($_FILES['changeAvatar']['size'] <= 3000000) {
                 if (!is_dir($uploads_dir)) {
                     mkdir($uploads_dir);
                 } else {
-                    move_uploaded_file($DATA['avatar'], "$uploads_dir/$name");
+                    move_uploaded_file($tmp_name, "$uploads_dir/$name");
                     rename("$uploads_dir/$name", "$uploads_dir/$newFileName.$extension");
                     $DATA['changeAvatar'] = $uploads_dir . "/" . $newFileName . "." . $extension;
                 }
             } else {
-                $formErrors['avatarSize'] = "Poid de l'image supérieur a la limite de 3Mo<br>";
+                $formErrors['avatarSize'] = "Erreur ! Poid de l'image supérieur a la limite de 3Mo<br>";
             }
         } else {
             $formErrors['avatarExtension'] = "Mauvaise extension d'image<br>";
@@ -90,6 +90,8 @@ if (!empty($_FILES)) {
 // FORM CONTROL 
 
 if (isset($_POST)) {
+
+
 
 
 

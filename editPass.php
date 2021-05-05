@@ -24,13 +24,14 @@ $result = $PDO->query($sql);
 
 while ($u = $result->fetch(PDO::FETCH_ASSOC)) {
 
-    echo "<form action='./changePass.php' method='POST'>" . $u['firstname'] . " voulez vous changer de MDP ? <br>
+
+    echo "<div class='container'><form action='./changePass.php' method='POST'>" . $u['firstname'] . " voulez vous changer de MDP ? <br>
     <input type='text' name='oldPass' placeholder='Old password'>
     <input type='password' name='newPass' placeholder='New password'>
      <input type='password' name='newPassConfirm' placeholder='Confirm password'>
      <input type='hidden' name='id' value=$userId>
     <input type='submit'>
-    </form>";
+    </form></div>";
 }
 
 
