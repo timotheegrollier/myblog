@@ -25,12 +25,18 @@ require __DIR__ . "./dbConfig.php";
                 <a href="index.php">
                     <li>Home</li>
                 </a>
-                <a href="tagsList.php">
-                    <li>TAG & Catégories</li>
-                </a>
-                <a href="./users.php">
-                    <li>Users</li>
-                </a>
+
+
+                <?php if (isset($_SESSION['id'])) {
+                    echo "  <a href='tagsList.php'>
+<li>TAG & Catégories</li>
+</a>
+
+<a href='./users.php'>
+<li>Users</li>
+</a>";
+                }
+                ?>
 
                 <?php if (!isset($_SESSION['id'])) {
                     echo "<a href='./inscription.html'>

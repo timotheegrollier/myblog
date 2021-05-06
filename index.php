@@ -35,7 +35,7 @@ if (isset($_SESSION['id']) and isset($_SESSION['pseudo'])) {
 $sql = ("SELECT id,name,article,enabled FROM article");
 $result = $PDO->query($sql);
 
-echo "<div class='articleList'><h4>Dernier articles:</h4>";
+echo "<div class='articleList'><h4>Derniers articles:</h4>";
 while ($a = $result->fetch(PDO::FETCH_ASSOC)) {
 
     echo "<a href='./article?id=$a[id]'>$a[name]</a>";

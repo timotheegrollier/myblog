@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -155,6 +157,7 @@ body {
   margin-top: 30px;
   border: 1px solid black;
   background: rgb(172, 170, 170);
+  padding: 10px;
 }
 .list-btn:hover {
   transform: translateY(-1px);
@@ -162,6 +165,7 @@ body {
 .del-btn {
   border: 1px solid black;
   background: rgb(238, 0, 0);
+  padding: 10px;
 }
 .del-btn a {
   color: white;
@@ -183,18 +187,59 @@ body {
   align-items: center;
 }
 .article-container {
-  background: gray;
+  background: rgba(128, 128, 128, 0.726);
   width: 80%;
+  text-align: center;
 }
 #newArticle {
   display: none;
 }
 
+#article {
+  resize: none;
+  width: 60%;
+}
 .modify-form {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+#exitArt {
+  color: red;
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.editArtBtn {
+  border: 1px solid black;
+  background: rgb(10, 83, 10);
+  margin: auto;
+  text-align: center;
+  width: 40%;
+  margin-top: 20px;
+}
+
+.editArtBtn:hover {
+  cursor: pointer;
+  transform: translateX(1px);
+}
+
+.title {
+  display: flex;
+  font-size: 2rem;
+  color: rgb(22, 126, 218);
+  font-family: "Itim", cursive;
+}
+.article-img {
+  display: flex;
+  justify-content: center;
+}
+
+.article-img img {
+  width: 50%;
+}
+
 /* RESPONSIVE */
 
 @media screen and (max-width: 480px) {
