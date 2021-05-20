@@ -144,7 +144,9 @@ if (isset($_POST)) {
             'newAvatar' => $DATA['changeAvatar']
         ));
         echo 'Merci ' . $DATA['prenom'] . '<br>Les informations ont été modifié !';
-        header('Location: ./users.php');
+        header('Location: ./index.php');
+        session_start();
+        $_SESSION['avatar'] = $DATA['changeAvatar'];
         exit();
     }
 

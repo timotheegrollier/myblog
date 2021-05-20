@@ -22,6 +22,13 @@ ul {
   align-items: center;
   height: 100%;
 }
+li {
+  color: aquamarine;
+  font-size: large;
+}
+li:hover {
+  cursor: pointer;
+}
 
 a {
   text-decoration: none;
@@ -93,6 +100,33 @@ input {
   width: 200px;
   height: 200px;
   border-radius: 10px;
+}
+
+#connected {
+  background: green;
+  display: none;
+  flex-direction: column;
+  height: 30%;
+  color: white;
+  font-size: 2rem;
+}
+
+h6 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#exitSign {
+  color: red !important;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.errorContent {
+  display: flex;
+  flex-direction: column;
 }
 @media screen and(max-width:500px) {
   .logo {
@@ -238,6 +272,11 @@ body {
 
 .article-img img {
   width: 50%;
+}
+
+#inscription {
+  display: none;
+  width: 100%;
 }
 
 /* RESPONSIVE */

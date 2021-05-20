@@ -14,7 +14,8 @@ require __DIR__ . "./dbConfig.php";
     <title>MyBlog PHP</title>
     <link rel="stylesheet" href="./style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <script src="./script.js" defer></script>
 
 </head>
 
@@ -27,7 +28,7 @@ require __DIR__ . "./dbConfig.php";
                 </a>
 
 
-                <?php if (isset($_SESSION['id'])) {
+                <?php if (isset($_SESSION['prenom'])) {
                     echo "  <a href='tagsList.php'>
 <li>TAG & Catégories</li>
 </a>
@@ -38,22 +39,26 @@ require __DIR__ . "./dbConfig.php";
                 }
                 ?>
 
-                <?php if (!isset($_SESSION['id'])) {
-                    echo "<a href='./inscription.html'>
-                    <li>Inscription</li>
-                </a><a href='./loginPage.php'>
+                <?php if (!isset($_SESSION['prenom'])) {
+                    echo "<li id='signin'>Inscription</li>
+                <a href='./loginPage.php'>
                     <li>Connexion</li>
                 </a>";
                 }
-
-                if (isset($_SESSION['id'])) {
+                if (isset($_SESSION['prenom'])) {
                     echo
                     "<a href='./deconnexion.php'>
                     <li>Déconnexion</li>
-                </a><a href='./editUsers.php?id=$_SESSION[id]'><img src=$_SESSION[avatar] class='profile-pic'></a>";
+                </a><a href='./editUsers.php?id=$_SESSION[prenom]'></a>";
                 }
                 ?>
+
+                <?php if (!empty($_SESSION['avatar'])) {
+                ?><img class="profile-pic" src=<?= $_SESSION['avatar'] ?> alt="profile-pic"><?php
+                                                                                        }
+                                                                                            ?>
             </ul>
+
         </nav>
     </header>
     <main>

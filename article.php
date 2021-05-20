@@ -1,5 +1,6 @@
 <?php require __DIR__ . "./header.php";
 
+
 try {
     $options = [
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
@@ -24,7 +25,7 @@ $result = $PDO->query($sql);
 while ($a = $result->fetch(PDO::FETCH_ASSOC)) {
 
 
-?><div class="article">
+?><div class="article" id="art">
     <h4 class="title"><?php echo $a['name'] ?></h4>
 
 
@@ -57,14 +58,41 @@ while ($a = $result->fetch(PDO::FETCH_ASSOC)) {
 
 
 <?php if (isset($_SESSION['id'])) {
-        echo "<div class='editArtBtn'>
+        echo "<div class='editArtBtn' id='art-btn'>
     EDIT
 </div>
 ";
     }
 }
 ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="./script.js"></script>
+
+<div id="connected">
+</div>
+<div id="signin">
+    <form id="inscription" enctype="multipart/form-data">
+        <i class='fas fa-times-circle' id='exitSign'></i>
+        <label for="prenom">Prénom</label>
+        <input type="text" for="prenom" name="prenom" id="prenom">
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom">
+        <label for="pseudo">Pseudo</label>
+        <input type="text" for="pseudo" name="pseudo" id="pseudo">
+        <label for="mail">Email</label>
+        <input type="email" for="mail" name="mail" id="mail">
+        <label for="mdp">Password</label>
+        <input type="password" for="mdp" name=" password" id="mdp">
+        <label for="mdpConfirm">Confirm password</label>
+        <input type="password" for="mdpConfirm" name="mdpConfirm" id="mdpConfirm">
+        <!-- <input type="file" name="avatar"> -->
+
+        <input type="submit" value="Inscription">
+
+    </form>
+</div>
+
+
+
+
+
 <?php
 require __DIR__ . "./footer.php";

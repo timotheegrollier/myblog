@@ -1,5 +1,5 @@
 <?php require __DIR__ . './dbConfig.php';
-
+session_start();
 
 $userId = $_GET['id'];
 
@@ -21,13 +21,22 @@ try {
 
 $sql = "DELETE FROM users WHERE id=$userId";
 
-$result = $PDO->query($sql);
 
-
+if ($userId == $_SESSION['id']) {
+    $error = 1;
+}
+?>
+<?php
 if ($sql) {
-    echo 'Utilisateur supprimer';
-    header('Location: ./users.php');
-    exit();
+    if (!$error) {
+        $result = $PDO->query($sql);
+        echo 'Utilisateur supprimer';
+        header('Location: ./users.php');
+        exit();
+    } else { ?>
+<h5>Vous ne pouvez pas supprimez ce compte ! <a href="./users.php">Retour</a></h5>
+<?php
+    }
 } else {
     echo 'Erreur';
 }
