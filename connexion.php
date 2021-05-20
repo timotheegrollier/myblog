@@ -19,7 +19,7 @@ try {
 };
 
 
-$sql = $PDO->prepare("SELECT id ,password,avatar FROM users WHERE pseudo = :pseudo");
+$sql = $PDO->prepare("SELECT id ,password,avatar,firstname,email FROM users WHERE pseudo = :pseudo");
 $sql->execute(array(
     'pseudo' => $pseudo
 ));
@@ -41,6 +41,8 @@ if (!$resultat) {
         $_SESSION['id'] = $resultat['id'];
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['avatar'] = $resultat['avatar'];
+        $_SESSION['prenom'] = $resultat['firstname'];
+        $_SESSION['mail'] = $resultat['email'];
         header('Location: ./index.php');
         exit();
         echo "Vous êtes connécté ! ";
